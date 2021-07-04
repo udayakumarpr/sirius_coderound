@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>:: SIRIUS CodeRound ::</title>
+
+
+<link href="css/style.css" rel="stylesheet">
+
+</head>
+<body>
+<!-- section one start-->
+<div class="topsection">
+    <div class="">
+        <div class="topsectionpara m-b-10">Book now to get exciting travel deals. Upto 40% off on credit card payments</div>
+        <div class="topsectionpara fw-700">Offers ends in             
+                <span id="days"></span> 
+                <span id="hours"></span>
+                <span id="minutes"></span>
+                <span id="seconds"></span>
+            </div>
+    </div>  
+</div>
+<!-- section one end-->
+
+<!-- section 2 Navication start-->
+<div class="navsection">
+    <div class="navlistdiv">
+        <ul class="navlist">
+            <li><a href="#">WEATHER</a> </li>
+            <li><a href="#">DESINATIONS</a> </li>
+            <li><a href="#">GET A QUOTE</a> </li>
+        </ul>
+    </div>
+</div>
+<!-- section 2 Navication end-->
+
+<!-- section 3 Welcome Content start-->
+<div class="welcomecontentsection">
+    <div class="wcdiv">
+        <div class="wcleft">
+            <div class="wcimg">
+                <img src="images/welcome-image.svg">
+            </div>
+        </div>
+        <div class="wcright">
+            <div class="wcRightTitle">Life is short <br/> and the world is wide!</div>
+            <div class="wcRightTxt">Stay at the comfort of your homes and book a trip to travel after the post pandemic era</div>
+            <div class="btncenter">
+                <button class="btnprimary" type="button">PLAN A TRIP</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- section 3 Welcome Content end-->
+
+<!-- section 4 Weather Channel start-->
+<div class="WeatherChannelSection">
+    <div class="WeaChannelTit">THE WEATHER CHANNEL</div>
+    <div class="WeatherDiv" id="weatherDomList">
+        <!-- <div class="WeaterBox">
+            <div class="WCity">Canberra</div>
+            <div>
+                <img src="images/icon-party-sunny.svg">
+            </div>
+            <div class="Wtemp_Celsius">
+                32<span>&#176;</span>
+            </div>
+        </div>
+        <div class="WeaterBox">
+            <div class="WCity">Tokyo</div>
+            <div>
+                <img src="images/icon-party-sunny.svg">
+            </div>
+            <div class="Wtemp_Celsius">
+                27<span>&#176;</span>
+            </div>
+        </div>
+        <div class="WeaterBox">
+            <div class="WCity">London</div>
+            <div>
+                <img src="images/icon-party-sunny.svg">
+            </div>
+            <div class="Wtemp_Celsius">
+                22<span>&#176;</span>
+            </div>
+        </div>
+        <div class="WeaterBox">
+            <div class="WCity">Dubai</div>
+            <div>
+                <img src="images/icon-party-sunny.svg">
+            </div>
+            <div class="Wtemp_Celsius">
+                38<span>&#176;</span>
+            </div>
+        </div> -->
+    </div>
+</div>
+<!-- section 4 Weather Channel end-->
+
+<!-- section 5 featured start-->
+<div class="featuredSection">
+    <div class="featuredTit">Featured Destinations</div>
+    <div class="fdImageList">
+        <ul id="featureddes" class="">
+            <!-- <li>
+                <div class="fdimg">
+                    <img src="https://images.unsplash.com/photo-1529655683826-aba9b3e77383?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1001&q=80">
+                </div>
+                <div class="fd_cityname">London</div>
+            </li> -->            
+        </ul>
+    </div>
+</div>
+<!-- section 5 featured end-->
+
+<!-- section 6 promo image start -->
+<div class="bgimgsection">
+    <div class="promotxtfix">
+        <div class="promoimgtit">PLAN A TRIP</div>
+        <div class="promoimgsubtxt">Make your vacation the most <br> memorable one</div>
+    </div>
+</div>
+<!-- section 6 promo image end -->
+<!-- section 7 Get a Quote start -->
+<div class="getaquoteSection">
+    <div class="getaquoteTitle">
+        Travelling as a group? Get a Quote
+    </div>
+    <div class="formdiv">
+        <form action="" id="myform" onsubmit="return false">
+            <div class="input_field">
+                <label class="inputLabel">Your Name</label>
+                <input type="text" class="formctl" id="name" required>
+                <div class="errorTxt" id="nameerror" style="display: none;">Name is required</div>
+            </div>
+        
+            <div class="input_field">
+                <label class="inputLabel">Contact No</label>
+                <input type="text"  class="formctl"  id="phone" required>
+                <div class="errorTxt" id="phonerror" style="display: none;">Contact No is required</div>
+            </div>
+            <div class="input_field">
+                <label class="inputLabel">Email</label>
+                <input type="text" class="formctl" id="email" required>
+                <div class="errorTxt" id="emailerror" style="display: none;">Email is required.</div>
+            </div>
+            <div id="alertDiv" style="display: none;">
+                <div class="alertsuccess">We hear you! We will get back to you for planning your vacation.</div>
+            </div>
+            <div class="btn">
+                <input type="submit" class="btnprimary" onclick="validate()" value="SUBMIT">
+                <!-- <button type="submit" class="btnprimary">SUBMIT</button> -->
+            </div>
+          </form>
+    </div>
+</div>
+<!-- section 7 Get a Quote end -->
+
+<!-- section 8 footer  start -->
+<div class="footersection">
+ <div class="footerlistdiv">
+    <div class="footerdiv">
+        <div class="footerTit">Tripzone</div>
+        <div class="footerlist">
+            <ul class="">
+                <li><a href="#" class="footerLink">About</a> </li>
+                <li><a href="#" class="footerLink">Awards</a> </li>
+                <li><a href="#" class="footerLink">Contact us</a> </li>
+                <li><a href="#" class="footerLink">Feedback</a> </li>
+            </ul>
+        </div>
+    </div>
+    <div class="footerdiv">
+        <div class="footerTit">Main Offices</div>
+        <div class="footerlist">
+            <ul class="">
+                <li><a href="#" class="footerLink">The United States</a> </li>
+                <li><a href="#" class="footerLink">India</a> </li>
+                <li><a href="#" class="footerLink">Brazil</a> </li>
+                <li><a href="#" class="footerLink">Canada</a> </li>
+            </ul>
+        </div>
+    </div>
+    <div class="footerdiv">
+        <div class="footerTit">Sub Offices</div>
+        <div class="footerlist">
+            <ul class="">
+                <li><a href="#" class="footerLink">Australia</a> </li>
+                <li><a href="#" class="footerLink">England</a> </li>
+                <li><a href="#" class="footerLink">France</a> </li>
+                <li><a href="#" class="footerLink">Germany</a> </li>
+            </ul>
+        </div>
+    </div>
+</div>
+    <div class="footerdivdes">
+        <div class="footerTit">Disclaimer</div>
+        <div class="footertxt">
+            <div>This layout is created as a part of Sirius UI Recruitments.</div>
+            <div>All the above content has no direct relation with Sirius business.</div>
+        </div>
+    </div>
+</div>
+<!-- section 8 footer  start -->
+
+<!-- custom script -->
+<script src="js/jquery.min.js"></script>
+<script src="js/custom.js"></script>
+</body>
+</html>

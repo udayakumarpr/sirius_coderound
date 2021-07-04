@@ -1,9 +1,668 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700;900&display=swap');
 
-:root{
-    --primary: #000;
+$robotoslap: 'Roboto Slab', serif;
+$roboto: 'Roboto', sans-serif;
+$primary-color: #000;
+$firstclr: #000;
+$secondclr: #133357;
+
+
+%bggradient {
+    background-image: linear-gradient(to right, $firstclr, $secondclr);
 }
 
-body{
-    font-family: 'Roboto Slab', serif;
+$spaceamounts: (5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 75, 100); // Adjust this to include the pixel amounts you need.
+$sides: (top, bottom, left, right); // Leave this variable alone
+
+@each $space in $spaceamounts {
+    @each $side in $sides {
+        .m-#{str-slice($side, 0, 1)}-#{$space} {
+            margin-#{$side}: #{$space}px !important;
+        }
+
+        .p-#{str-slice($side, 0, 1)}-#{$space} {
+            padding-#{$side}: #{$space}px !important;
+        }
+    }
+}
+
+body {
+    font-family: $roboto;
+    margin: 0;
+    padding: 0;
+}
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+// section 1
+.topsection {
+    @extend %bggradient;
+    text-align: center;
+    padding: 20px 15px;
+
+    .topsectionpara {
+        font-size: 24px;
+        color: #fff;
+    }
+}
+.fw-700{
+    font-weight: 700;
+}
+.btnprimary{
+    @extend %bggradient;
+    padding: 20px 75px;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 500;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    &:hover{
+        border-color: $secondclr;
+        background: transparent;
+        color: $secondclr;
+    }
+}
+
+//section 2 start
+.navsection{
+    padding: 40px 150px;
+    .navlistdiv
+    {
+        display: flex;
+        margin: 0;
+        .navlist
+        {
+            padding: 0px;
+            list-style: none;
+            display: flex;
+            justify-content: end;
+            margin: 0;
+            margin-left: auto;
+            li {
+                display: inline-flex;
+                a {
+                    font-size: 24px;
+                    margin: 0px 25px;
+                    color: #000;
+                    text-decoration: none;
+
+                    &:hover{
+                        color: $secondclr;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+}
+//section 2 end
+
+//section 3 start
+.welcomecontentsection{
+    padding: 70px 150px;
+    .wcdiv{
+        display: flex; 
+        align-items: center;       
+        .wcleft
+        {
+            width: 50%;
+            .wcimg{
+                text-align: center;
+                margin: 0 auto;
+            }
+            img{
+                max-width: 100%;
+            }    
+        }
+        .wcright{
+            width: 50%;
+            padding-left: 50px;
+            .wcRightTitle{
+                font-size: 72px;
+                font-weight: 700;
+                color: #000;
+                margin-bottom: 45px;
+            }
+            .wcRightTxt{
+                font-size: 28px;
+                font-weight: 400;
+                color: #000;
+                margin-bottom: 45px;
+            }
+        }
+    }
+}
+//section 3 end
+
+//section 4 start
+.WeatherChannelSection{
+    padding: 70px 150px;
+    .WeaChannelTit{
+        font-size: 30px;
+        font-weight: 500;
+        color: #fff;
+        padding: 30px 40px;
+        background-color: #123052;
+    }
+    .WeatherDiv{
+        display: flex;
+        .WeaterBox{
+            text-align: center;
+            width: 25%;
+            padding: 40px 15px;
+            
+            &:nth-child(1)
+            {
+                background-color: #0D7E88;
+            }
+            &:nth-child(2)
+            {
+                background-color: #D09378;
+            }
+            &:nth-child(3)
+            {
+                background-color: #405B5D;
+            }
+            &:nth-child(4)
+            {
+                background-color: #74A748;
+            }
+
+            .WCity{
+                font-size: 32px;
+                font-weight: 500;
+                color: #fff;  
+                text-align: center;       
+                margin-bottom: 30px       
+            }
+
+            .Wtemp_Celsius{
+                font-size: 125px;
+                font-weight: 400;
+                color: #fff; 
+                text-align: center;   
+                margin-top: 10px;            
+            }
+        }
+    }
+}
+//section 4 end
+
+//section 5 start
+.featuredSection{ 
+    padding: 0px 150px 70px;
+    .featuredTit{
+        font-size: 42px;
+        font-weight: 700;
+        font-family: $robotoslap;
+        color: $secondclr;
+        margin-bottom: 15px;
+    }
+    .fdImageList{
+        overflow-x: scroll;
+        scrollbar-width: none;
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+	-webkit-overflow-scrolling: touch;
+    &::-webkit-scrollbar {
+        width: 0px;
+        background: transparent;
+    }
+        ul{
+            padding: 0;
+            list-style: none;
+            display: flex;
+            flex-wrap: nowrap;
+            li{
+                display: inline-block;
+                margin-right: 30px;
+                .fdimg{    
+                    width: 300px;
+                    height: 300px;
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 15px 15px 15px 0px;
+                    }
+                }
+                .fd_cityname{
+                    font-size: 24px;
+                    color: $firstclr;
+                    opacity: 0.7;
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+}
+//section 5 end
+
+
+// section 6 start
+.bgimgsection{
+    background-image: url('../images/promo-image.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 70px 150px; 
+    height: 800px;   
+    position: relative;
+}
+.promoimgtit{
+    font-size: 80px;
+    font-weight: 700;
+    color: #fff;    
+}
+.promoimgsubtxt{
+    font-size: 48px;
+    font-weight: 500;
+    color: #fff;    
+}
+.promotxtfix{
+    position: absolute;
+    bottom: 70px
+}
+
+// section 6 end
+
+//Section 7 get a Quote start
+.getaquoteSection {
+    padding: 70px 150px;
+    .getaquoteTitle{
+        text-align: center;
+        font-family: $robotoslap;
+        font-size: 40px;
+        font-weight: 700;
+        color: $secondclr;
+        margin-bottom: 80px;
+    }
+    .formdiv{
+        width: 750px;
+        margin: 0 auto;
+        text-align: center;
+        .input_field{
+            margin-bottom: 30px;
+            text-align: left;
+            .inputLabel{
+                font-size: 20px;
+                font-weight: 400;
+                color: #b0b0b0;
+                display: block;
+                margin-bottom: 15px;
+            }
+            .formctl{
+                width: 100%;
+                font-size: 24px;
+                font-weight: 400;
+                color: #000;
+                background-color: #fff;
+                border: 1px solid #b0b0b0;
+                border-radius: 5px;
+                height: 65px;
+                padding: 8px 15px;
+                &:focus{
+                    border-color: $secondclr;
+                }
+            }
+            
+        }
+        
+        .errorTxt{
+            color: red;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+    }
+    .alertsuccess{
+        background-color: #d0f8cc;
+        padding: 15px;
+    color: #333;
+    font-size: 16px;
+    text-align: left;
+    margin-bottom: 15px;
+    }
+}
+//Section 7 get a Quote end
+
+
+
+// section 8 start
+.footersection{
+    @extend %bggradient;
+    padding: 70px 150px;
+    display: flex;
+    flex: 0 1 auto;
+    .footerlistdiv {
+        width: 60%;
+        display: flex;
+    }
+    .footerdivdes{
+        width: 40%;
+    }
+    .footerdiv{
+        width: 33%;
+    }
+    
+    .footerTit{
+        font-size: 30px;
+        font-weight: 500;
+        color: #fff;
+        margin-bottom: 30px;
+    }
+    .footerlist{
+        ul{
+            padding: 0px;
+            list-style: none;
+            li{
+                a{
+                    &.footerLink
+                    {
+                        font-size: 25px;
+                        font-weight: 400;
+                        color: #fff;
+                        text-decoration: none;
+                        display: inline-block;
+                        padding: 10px 0px;
+                        border-bottom: 1px solid transparent;
+                        &:hover{
+                            border-bottom: 1px solid #fff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .footertxt{
+        font-size: 25px;
+        font-weight: 400;
+        color: #fff;
+        line-height: 34px;
+    }
+}
+// section 8 end
+
+// mobile responsive
+@media only screen and (max-width: 430px){
+    .topsection{
+        .topsectionpara {
+            font-size: 14px;
+        }
+    }
+    .footersection{
+        padding: 70px 25px;
+        flex-direction: column;
+        .footerlistdiv {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .footerdivdes{
+            width: 100%;
+        }
+        .footerdiv{
+            width: 100%;
+        }
+        .footerTit{
+            font-size: 26px;
+        }
+        .footerlist{
+            margin-bottom: 50px;
+            ul{
+                padding: 0px;
+                list-style: none;
+                li{
+                    a{
+                        &.footerLink
+                        {
+                            font-size: 20px;
+                        }
+                    }
+                }
+            }
+        }
+        .footertxt{
+            font-size: 20px;
+        }
+    }
+
+    .bgimgsection{        
+        background-size: contain;        
+        padding: 90px 30px; 
+        height: auto;           
+    }
+    .promoimgtit{
+        font-size: 20px;
+        font-weight: 700;
+        color: #fff;    
+    }
+    .promoimgsubtxt{
+        font-size: 16px;
+        font-weight: 500;
+        color: #fff;    
+    }
+    .promotxtfix{
+        position: absolute;
+        bottom: 20px
+    }
+    .getaquoteSection {
+        padding: 70px 30px;
+        .getaquoteTitle{
+            text-align: center;
+            font-family: $robotoslap;
+            font-size: 30px;
+            font-weight: 700;
+            color: $secondclr;
+            margin-bottom: 40px;
+        }
+        .formdiv{
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+            .input_field{
+                margin-bottom: 30px;
+                text-align: left;
+                .inputLabel{
+                    font-size: 16px;
+                    font-weight: 400;
+                    color: #b0b0b0;
+                    display: block;
+                    margin-bottom: 15px;
+                }
+                .formctl{
+                    width: 100%;
+                    font-size: 20px;
+                    font-weight: 400;
+                    color: #000;
+                    background-color: #fff;
+                    border: 1px solid #b0b0b0;
+                    border-radius: 5px;
+                    height: 50px;
+                    padding: 8px 15px;
+                    &:focus{
+                        border-color: $secondclr;
+                    }
+                }
+                
+            }
+            
+            .errorTxt{
+                color: red;
+                font-size: 14px;
+                margin-top: 10px;
+            }
+        }
+        .alertsuccess{
+            background-color: #d0f8cc;
+            padding: 15px;
+        color: #333;
+        font-size: 14px;
+        text-align: left;
+        margin-bottom: 15px;
+        }
+    }
+
+
+    .navsection{
+        padding: 25px 30px;
+        .navlistdiv
+        {
+            display: flex;
+            margin: 0;
+            .navlist
+            {
+                padding: 0px;
+                list-style: none;
+                display: flex;
+                justify-content: center;
+                margin: 0;
+                margin-left: auto;
+                margin-right: auto;
+                li {
+                    display: inline-flex;
+                    a {
+                        font-size: 16px;
+                        margin: 0px 10px;
+                        color: #000;
+                        text-decoration: none;
+    
+                        &:hover{
+                            color: $secondclr;
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .welcomecontentsection{
+        padding: 25px 25px;
+        .wcdiv{
+            display: flex; 
+            align-items: center;   
+            flex-direction: column;    
+            .wcleft
+            {
+                margin-bottom: 60px;
+                width: 100%;
+                .wcimg{
+                    text-align: center;
+                    margin: 0 auto;
+                }
+                img{
+                    max-width: 100%;
+                }    
+            }
+            .wcright{
+                width: 100%;
+                padding-left: 0px;
+                .wcRightTitle{
+                    font-size: 30px;
+                    font-weight: 700;
+                    color: #000;
+                    margin-bottom: 25px;
+                    text-align: center;
+                }
+                .wcRightTxt{
+                    font-size: 28px;
+                    line-height: 40px;
+                    font-weight: 400;
+                    color: #000;
+                    margin-bottom: 45px;
+                    text-align: center;
+                }
+            }
+        }
+        .btncenter{
+            text-align: center;
+        }
+    }
+
+    .btnprimary {
+        padding: 12px 25px;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 500;
+        border-radius: 5px;
+        border: 1px solid transparent;
+    }
+
+
+    .WeatherChannelSection{
+        padding: 45px 30px;
+        .WeaChannelTit{
+            font-size: 24px;
+            text-align: center;
+            padding: 25px 10px;
+        }
+        .WeatherDiv{
+            display: inline-block;
+            width: 100%;
+            .WeaterBox{
+                text-align: center;
+                width: 50%;
+                padding: 40px 15px;
+                float: left;
+        .WCity{
+            font-size: 16px;                
+            margin-bottom: 20px       
+        }
+        img{
+            width: 30px;
+        }
+        .Wtemp_Celsius{
+            font-size: 36px;
+            margin-top: 15px;
+            }
+            }
+        }
+    }
+
+    .featuredSection{ 
+        padding: 0px 30px 40px;
+        .featuredTit{
+            font-size: 20px;
+            font-weight: 700;
+            font-family: $robotoslap;
+            color: $secondclr;
+            margin-bottom: 5px;
+        }
+        .fdImageList{
+            overflow-x: scroll;
+            scrollbar-width: none;
+      overflow: -moz-scrollbars-none;
+      -ms-overflow-style: none;
+        -webkit-overflow-scrolling: touch;
+        &::-webkit-scrollbar {
+            width: 0px;
+            background: transparent;
+        }
+            ul{
+                padding: 0;
+                list-style: none;
+                display: flex;
+                flex-wrap: nowrap;
+                li{
+                    display: inline-block;
+                    margin-right: 15px;
+                    .fdimg{    
+                        width: 150px;
+                        height: 150px;
+                        img{
+                            width: 100%;
+                            height: 100%;
+                            border-radius: 8px 8px 8px 0px;
+                        }
+                    }
+                    .fd_cityname{
+                        font-size: 12px;
+                        color: $firstclr;
+                        opacity: 0.7;
+                        margin-top: 10px;
+                    }
+                }
+            }
+        }
+    }
+
 }
